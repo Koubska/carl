@@ -27,3 +27,5 @@ endif()
 
 add_dependencies(GTESTCORE_STATIC GTest-EP)
 add_dependencies(GTESTMAIN_STATIC GTest-EP)
+
+add_dependencies(resources GTESTCORE_STATIC GTESTMAIN_STATIC)

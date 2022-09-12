@@ -12,6 +12,10 @@ runs:
       shell: bash
       run: |
         echo "::group::Configure CMake"
+        echo "Build directory: ${{github.workspace}}/build"
+        echo "Build type: ${{env.BUILD_TYPE}}"
+        echo "CC: ${{env.CC}}"
+        echo "CXX: ${{env.CXX}}"
         export CC=${{env.CC}} CXX=${{env.CXX}}
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
         echo "::group::Configure CMake done"

@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches: ["master"]
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+  build: 
+    strategy:
+      matrix:
+        include: 
+          - name: ubuntu:gcc
+            os: ubuntu-latest
+            cache-key: ubuntu-gcc
+            env:
+              CC: gcc
+              CXX: g++
+
+          - name: ubuntu:clang
+            os: ubuntu-latest
+            cache-key: ubuntu-clang
+            env:
+              CC: clang
+              CXX: clang++
+    
+    name: ${{matrix.name}}
+    runs-on: ${{matrix.os}}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        uses: ./.github/actions/install_dependencies
+
+      - name: Build
+        uses: ./.github/actions/build
+        with: 
+          build-dir: ${{github.workspace}}/build
+
+      - name: Run Tests
+        uses: ./.github/actions/run_tests
+        with: 
+          build-dir: ${{github.workspace}}/build

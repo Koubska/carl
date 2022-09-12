@@ -35,8 +35,8 @@ jobs:
       - name: Install Dependencies
         uses: ./.github/actions/install_dependencies
 
-      - name: Build
-        uses: ./.github/actions/build
+      - name: Compile
+        uses: ./.github/actions/compile
         with: 
           build-dir: ${{github.workspace}}/build
 

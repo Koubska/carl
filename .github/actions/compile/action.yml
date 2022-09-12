@@ -1,0 +1,22 @@
+name: Build
+description: Build carl
+outputs:
+  build-dir:
+    description: "The build directory"
+    value: ${{github.workspace}}/build
+
+runs:
+  using: "composite"
+  steps:
+    - name: Configure CMake
+      shell: bash
+      run: |
+        echo "::group::Configure CMake"
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        echo "::group::Configure CMake done"
+    - name: Build carl
+      shell: bash
+      run: |
+        echo "::group::Build carl"
+        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all -j$(nproc)
+        echo "::group::Build carl done

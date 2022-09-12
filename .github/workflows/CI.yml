@@ -23,8 +23,8 @@ jobs:
             os: ubuntu-latest
             cache-key: ubuntu-clang
             env:
-              CC: clang-14
-              CXX: clang++-14
+              CC: clang-12
+              CXX: clang++-1
     
     name: ${{matrix.name}}
     runs-on: ${{matrix.os}}

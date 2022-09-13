@@ -15,16 +15,14 @@ jobs:
           - name: ubuntu:gcc
             os: ubuntu-latest
             cache-key: ubuntu-gcc
-            env:
-              CC: gcc
-              CXX: g++
+            CC: gcc
+            CXX: g++
 
           - name: ubuntu:clang
             os: ubuntu-latest
             cache-key: ubuntu-clang
-            env:
-              CC: clang-12
-              CXX: clang++-1
+            CC: clang-12
+            CXX: clang++-12
     
     name: ${{matrix.name}}
     runs-on: ${{matrix.os}}

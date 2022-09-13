@@ -5,10 +5,6 @@ inputs:
     description: "Environment variables for the build"
     required: true
     default: ""
-outputs:
-  build-dir:
-    description: "The build directory"
-    value: ${{github.workspace}}/build
 
 runs:
   using: "composite"

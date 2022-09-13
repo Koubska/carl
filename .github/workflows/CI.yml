@@ -31,11 +31,8 @@ jobs:
 
       - name: Compile
         uses: ./.github/actions/compile
-        with: 
-          build-dir: ${{github.workspace}}/build
+        with:
           build-env: ${{matrix.env}}
 
       - name: Run Tests
         uses: ./.github/actions/run_tests
-        with: 
-          build-dir: ${{github.workspace}}/build

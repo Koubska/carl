@@ -1,8 +1,5 @@
 name: Run tests
 description: Run all tests for carl
-inputs: 
-  build-dir: 
-    default: build/
 
 runs:
   using: "composite"
@@ -13,9 +10,7 @@ runs:
         echo "::group::Build Tests"
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all-tests -j$(nproc)
         echo "::group::Build Tests done"
-runs: 
-  using: "composite"
-  steps:
+        
     - name: Run CTest
       shell: bash
       run: |

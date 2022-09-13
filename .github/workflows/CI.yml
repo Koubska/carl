@@ -33,6 +33,7 @@ jobs:
         uses: ./.github/actions/compile
         with: 
           build-dir: ${{github.workspace}}/build
+          build-env: ${{matrix.env}}
 
       - name: Run Tests
         uses: ./.github/actions/run_tests

@@ -1,5 +1,10 @@
 name: Build
 description: Build carl
+inputs:
+  build-env: 
+    description: "Environment variables for the build"
+    required: true
+    default: ""
 outputs:
   build-dir:
     description: "The build directory"
@@ -14,7 +19,7 @@ runs:
         echo "::group::Configure CMake"
         echo "Build directory: ${{github.workspace}}/build"
         echo "Build type: ${{env.BUILD_TYPE}}"
-        echo ${{env.CC}} ${{env.CXX}} $CC $CXX
+        echo ${{inputs.build-env}}
         export CC=${{inputs.CC}} CXX=${{inputs.CXX}}
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
         echo "::group::Configure CMake done"

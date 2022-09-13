@@ -10,7 +10,7 @@ runs:
         echo "::group::Build Tests"
         cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all-tests -j$(nproc)
         echo "::group::Build Tests done"
-        
+
     - name: Run CTest
       shell: bash
       run: |
@@ -19,4 +19,5 @@ runs:
         then
           echo "::error::Tests failed"
           ctest --output-on-failure --rerun-failed
+        fi
         echo "::group::Run CTest done"

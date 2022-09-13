@@ -17,7 +17,6 @@ jobs:
             cache-key: ubuntu-gcc
             CC: gcc
             CXX: g++
-
           - name: ubuntu:clang
             os: ubuntu-latest
             cache-key: ubuntu-clang

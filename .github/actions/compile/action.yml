@@ -1,5 +1,14 @@
 name: Build
 description: Build carl
+inputs: 
+  CC: 
+    description: 'The C compiler to use'
+    required: true
+    default: ""
+  CXX:
+    description: 'The C++ compiler to use'
+    required: true
+    default: ""
 outputs:
   build-dir:
     description: "The build directory"
@@ -14,9 +23,9 @@ runs:
         echo "::group::Configure CMake"
         echo "Build directory: ${{github.workspace}}/build"
         echo "Build type: ${{env.BUILD_TYPE}}"
-        echo "CC: ${{env.CC}}"
-        echo "CXX: ${{env.CXX}}"
-        export CC=${{env.CC}} CXX=${{env.CXX}}
+        echo "CC: ${{inputs.CC}}"
+        echo "CXX: ${{inputs.CXX}}"
+        export CC=${{inputs.CC}} CXX=${{inputs.CXX}}
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
         echo "::group::Configure CMake done"
     - name: Build carl

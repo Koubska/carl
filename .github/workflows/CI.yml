@@ -14,14 +14,11 @@ jobs:
         include: 
           - name: ubuntu:gcc
             os: ubuntu-latest
-            cache-key: ubuntu-gcc
-            CC: gcc
-            CXX: g++
+            env: CC=gcc CXX=g++
+
           - name: ubuntu:clang
             os: ubuntu-latest
-            cache-key: ubuntu-clang
-            CC: clang-12
-            CXX: clang++-12
+            env: CC=clang CXX=clang++
     
     name: ${{matrix.name}}
     runs-on: ${{matrix.os}}

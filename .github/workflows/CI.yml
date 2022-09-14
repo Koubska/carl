@@ -24,9 +24,9 @@ jobs:
             os: macos-latest
             env: CC=gcc CXX=g++
 
-          - name: macos:clang
-            os: macos-latest
-            env: CC=clang CXX=clang++
+          #- name: macos:clang
+          #  os: macos-latest
+          #  env: CC=clang CXX=clang++
 
     
     name: ${{matrix.name}}

@@ -39,6 +39,7 @@ jobs:
         uses: ./.github/actions/compile
         with:
           build-env: ${{matrix.env}}
+          bliss: ${{matrix.bliss}}
 
       - name: Run Tests
         uses: ./.github/actions/run_tests

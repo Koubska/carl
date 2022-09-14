@@ -20,14 +20,10 @@ jobs:
             os: ubuntu-latest
             env: CC=clang CXX=clang++
 
-          - name: macos:gcc
+          - name: macos:clang
             os: macos-latest
-            env: CC=gcc CXX=g++
+            env: CC=clang CXX=clang++
             bliss: OFF
-
-          #- name: macos:clang
-          #  os: macos-latest
-          #  env: CC=clang CXX=clang++
 
     
     name: ${{matrix.name}}

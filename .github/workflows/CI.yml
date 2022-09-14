@@ -23,6 +23,7 @@ jobs:
           - name: macos:gcc
             os: macos-latest
             env: CC=gcc CXX=g++
+            bliss: OFF
 
           #- name: macos:clang
           #  os: macos-latest

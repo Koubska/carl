@@ -5,6 +5,10 @@ inputs:
     description: "Environment variables for the build"
     required: true
     default: ""
+  bliss:
+    description: "Build with bliss"
+    required: false
+    default: "ON"
 
 runs:
   using: "composite"
@@ -15,9 +19,10 @@ runs:
         echo "::group::Configure CMake"
         echo "Build directory: ${{github.workspace}}/build"
         echo "Build type: ${{env.BUILD_TYPE}}"
-        echo ${{inputs.build-env}}
+        echo "Build Env: ${{inputs.build-env}}"
+        echo "Use bliss: ${{inputs.bliss}}"
         export ${{inputs.build-env}}
-        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+        cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_BLISS=${{inputs.bliss}}
         echo "::group::Configure CMake done"
     - name: Build carl
       shell: bash

@@ -22,12 +22,11 @@ runs:
         echo "Build Env: ${{inputs.build-env}}"
         echo "Use bliss: ${{inputs.bliss}}"
         export ${{inputs.build-env}}
-        cmake --version 
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_BLISS=${{inputs.bliss}}
         echo "::group::Configure CMake done"
     - name: Build carl
-      shell: bash
+      shell: bash #cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all -j$(nproc)
       run: |
         echo "::group::Build carl"
-        cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all -j$(nproc)
+        cd build && make --trace
         echo "::group::Build carl done"

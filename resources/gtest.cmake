@@ -34,4 +34,14 @@ add_dependencies(GTest::Main GTest-EP)
 add_dependencies(GTESTCORE_STATIC GTest-EP)
 add_dependencies(GTESTMAIN_STATIC GTest-EP)
 
+set_target_properties(GTest::GTest PROPERTIES
+	IMPORTED_LOCATION "${binary_dir}/googlemock/gtest/${CMAKE_FIND_LIBRARY_PREFIXES}gtest${STATIC_EXT}"
+	INTERFACE_INCLUDE_DIRECTORIES "${source_dir}/googletest/include"
+)
+
+set_target_properties(GTest::Main PROPERTIES
+	IMPORTED_LOCATION "${binary_dir}/googlemock/gtest/${CMAKE_FIND_LIBRARY_PREFIXES}gtest_main${STATIC_EXT}"
+	INTERFACE_INCLUDE_DIRECTORIES "${source_dir}/googletest/include"
+)
+
 add_dependencies(resources GTESTCORE_STATIC GTESTMAIN_STATIC)

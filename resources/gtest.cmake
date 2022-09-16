@@ -25,7 +25,13 @@ else()
 	set(GTEST_LIBRARIES GTESTCORE_STATIC GTESTMAIN_STATIC pthread dl)
 endif()
 
+add_library(GTest::GTest STATIC IMPORTED GLOBAL)
+add_library(GTest::Main STATIC IMPORTED GLOBAL)
+
+add_dependencies(GTest::GTest GTest-EP)
+add_dependencies(GTest::Main GTest-EP)
+
 add_dependencies(GTESTCORE_STATIC GTest-EP)
 add_dependencies(GTESTMAIN_STATIC GTest-EP)
 
-#add_dependencies(resources GTESTCORE_STATIC GTESTMAIN_STATIC)
+add_dependencies(resources GTESTCORE_STATIC GTESTMAIN_STATIC)

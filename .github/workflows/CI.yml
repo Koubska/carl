@@ -20,9 +20,8 @@ jobs:
           #  os: ubuntu-latest
           #  env: CC=clang CXX=clang++
 
-          - name: macos:gcc
+          - name: macos
             os: macos-latest
-            env: CC=gcc-11 CXX=g++-11
             bliss: OFF
 
     

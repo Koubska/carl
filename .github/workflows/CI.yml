@@ -22,7 +22,7 @@ jobs:
 
           - name: macos:clang
             os: macos-latest
-            env: CC=gcc CXX=g++
+            env: CC=gcc CXX=g++ LDFLAGS="$LDFLAGS -undefined dynamic_lookup"
             bliss: OFF
 
     

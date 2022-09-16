@@ -28,5 +28,5 @@ runs:
       shell: bash #cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all -j$(nproc)
       run: |
         echo "::group::Build carl"
-        cd build && make --trace
+        cd build && make -d
         echo "::group::Build carl done"

@@ -25,8 +25,8 @@ runs:
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_BLISS=${{inputs.bliss}}
         echo "::group::Configure CMake done"
     - name: Build carl
-      shell: bash #cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all -j$(nproc)
+      shell: bash 
       run: |
         echo "::group::Build carl"
-        cd build && make -d
+        #cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}} --target all -j$(nproc)
         echo "::group::Build carl done"

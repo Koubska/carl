@@ -24,7 +24,6 @@ jobs:
             os: macos-latest
             bliss: OFF
             env: CC=cc CXX=c++
-GTEST_LIBRARIES
     
     name: ${{matrix.name}}
     runs-on: ${{matrix.os}}

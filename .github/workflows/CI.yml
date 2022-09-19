@@ -13,11 +13,11 @@ jobs:
       matrix:
         include: 
           - name: ubuntu:gcc
-            os: ubuntu-latest
+            os: ubuntu-22.04
             env: CC=gcc CXX=g++
 
           - name: ubuntu:clang
-            os: ubuntu-latest
+            os: ubuntu-22.04
             env: CC=clang CXX=clang++
 
           - name: macos

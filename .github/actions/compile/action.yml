@@ -17,12 +17,8 @@ runs:
       shell: bash
       run: |
         echo "::group::Configure CMake"
-        echo "Build directory: ${{github.workspace}}/build"
-        echo "Build type: ${{env.BUILD_TYPE}}"
-        echo "Build Env: ${{inputs.build-env}}"
         echo "Use bliss: ${{inputs.bliss}}"
         export ${{inputs.build-env}}
-        clang++ --version
         cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DUSE_BLISS=${{inputs.bliss}}
         echo "::group::Configure CMake done"
     - name: Build carl

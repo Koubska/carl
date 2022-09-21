@@ -14,8 +14,8 @@ runs:
 
     - name: "Install macOS Dependencies"
       if: runner.os == 'macOS'
-      shell: bash #googletest
+      shell: bash 
       run: |
         echo "::group::Install macOS Dependencies"
-        brew install gmp boost eigen readline flex gnu-sed cln googletest 
+        brew install gmp boost eigen readline flex gnu-sed cln 
         echo "::group::Install macOS Dependencies done"

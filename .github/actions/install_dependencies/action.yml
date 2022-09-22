@@ -17,5 +17,5 @@ runs:
       shell: bash 
       run: |
         echo "::group::Install macOS Dependencies"
-        brew install gmp boost eigen readline flex gnu-sed cln 
+        brew install gmp boost eigen readline flex gnu-sed cln googletest
         echo "::group::Install macOS Dependencies done"

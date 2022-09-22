@@ -21,7 +21,7 @@ jobs:
 
           - name: macos
             os: macos-latest
-            bliss: ON
+            bliss: OFF
             env: CC=cc CXX=c++
     
     name: ${{matrix.name}}
